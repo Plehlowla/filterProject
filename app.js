@@ -8,6 +8,12 @@ const productContainer = document.querySelector('.products-container');
 
 const displayProducts = () => {
     // if statement
+    
+    if(filteredProducts.length < 1){
+      productContainer.innerHTML = `<h6>Sorry, no products matched your search</h6>`;
+      return
+    }
+
 
     productContainer.innerHTML = filteredProducts.map(({ id,title,image,price }) => {
 
