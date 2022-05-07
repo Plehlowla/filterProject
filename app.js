@@ -63,3 +63,19 @@ const productContainer = document.querySelector('.products-container');
   }
   
   displayButtons();
+
+  companiesDOM.addEventListener('click', (e) => {
+    // console.log(e.target);
+    const el = e.target
+    if(el.classList.contains('company-btn')){
+      if(el.dataset.id === 'all'){
+        filteredProducts = [...products];
+      }else{
+        filteredProducts = products.filter((product) => {
+          return product.company === el.dataset.id
+        })
+      }
+      searchInput.value = '';
+      displayProducts();
+    }
+  })
